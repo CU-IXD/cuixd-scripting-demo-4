@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example 5</title>
+    <link type="text/css" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" />
+  </head>
+<body class="container">
+  <div class="jumbotron">  
+    <h1>Example File 5</h1>
+    <p>Let's keep building a library of books.</p>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    function Book(title, author, year_published) {
+  
+      // Properties
+      this.title = title;
+      this.author = author;
+      this.year_published = year_published;
+      this.checked_out = false;
+      this.checked_out_to = '';
+
+      // Methods
+      this.check_out = function(person_name) {
+        this.checked_out = true;
+        this.checked_out_to = person_name;
+        console.log(this.title + " is now checked out to " + this.checked_out_to + ".");
+      };
+      this.check_in = function() {
+        var returned_by = this.checked_out_to;
+        this.checked_out = false;
+        this.checked_out_to = '';
+        console.log(returned_by + " just returned " + this.title + ".");
+      };
+
+    }
+    $(function(){
+      var book = new Book("The Hobbit", "J.R.R. Tolkien", 1937);
+    });
+  </script>
+</body>
+</html>
